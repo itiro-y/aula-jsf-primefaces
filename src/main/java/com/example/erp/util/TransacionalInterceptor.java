@@ -1,4 +1,4 @@
-package util;
+package com.example.erp.util;
 
 import java.io.Serializable;
 

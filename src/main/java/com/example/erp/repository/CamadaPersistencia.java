@@ -1,4 +1,4 @@
-package repository;
+package com.example.erp.repository;
 
 import com.example.erp.model.Empresa;
 import com.example.erp.model.RamoAtividade;
@@ -7,7 +7,6 @@ import com.example.erp.model.TipoEmpresa;
 import java.util.Date;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

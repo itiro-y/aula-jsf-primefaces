@@ -1,4 +1,4 @@
-package repository;
+package com.example.erp.repository;
 
 import com.example.erp.model.RamoAtividade;
 
