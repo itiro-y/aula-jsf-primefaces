@@ -1,16 +1,18 @@
-package repository;
+package com.example.erp.repository;
 
 import com.example.erp.model.Empresa;
 
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 public class Empresas implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @Inject
     private EntityManager manager;
 
     public Empresas() {
