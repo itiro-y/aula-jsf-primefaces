@@ -1,6 +1,7 @@
 package com.example.erp.controller;
 
 import com.example.erp.model.Empresa;
+import com.example.erp.model.TipoEmpresa;
 import com.example.erp.repository.Empresas;
 import com.example.erp.util.FacesMessages;
 
@@ -47,6 +48,10 @@ public class GestaoEmpresasBean implements Serializable {
 
     public void setListaEmpresas(List<Empresa> listaEmpresas) {
         this.listaEmpresas = listaEmpresas;
+    }
+
+    public TipoEmpresa[] getTiposEmpresa(){
+        return TipoEmpresa.values();
     }
 
     public void pesquisar(){
