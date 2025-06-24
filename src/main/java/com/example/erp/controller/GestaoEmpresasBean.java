@@ -5,6 +5,7 @@ import com.example.erp.model.RamoAtividade;
 import com.example.erp.model.TipoEmpresa;
 import com.example.erp.repository.Empresas;
 import com.example.erp.repository.RamoAtividades;
+import com.example.erp.service.CadastroEmpresaService;
 import com.example.erp.util.FacesMessages;
 
 import javax.faces.convert.Converter;
@@ -25,6 +26,9 @@ public class GestaoEmpresasBean implements Serializable {
     private RamoAtividadeConverter ramoAtividadeConverter;
 
     @Inject
+    private CadastroEmpresaService cadastroEmpresaService;
+
+    @Inject
     private RamoAtividades ramoAtividade;
 
     @Inject
@@ -32,6 +36,33 @@ public class GestaoEmpresasBean implements Serializable {
 
     @Inject
     private Empresas empresas;
+
+    private Empresa empresa;
+
+    public void prepararNovaEmpresa(){
+        empresa = new Empresa();
+    }
+
+    public void salvar(){
+        cadastroEmpresaService.salvar(empresa);
+
+        if(jaHouvePesquisa()){
+            pesquisar();
+        }
+        messages.info("Empresa cadastrada com sucesso!");
+    }
+
+    private boolean jaHouvePesquisa(){
+        return termoPesquisa != null && !"".equals(termoPesquisa);
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
 
     public void todasEmpresas(){
         listaEmpresas = empresas.todas();
