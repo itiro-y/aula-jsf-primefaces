@@ -28,7 +28,7 @@ public class Empresa implements Serializable {
     @Column(name = "razao_social", nullable = false, length = 120)
     private String razaoSocial;
 
-    @CNPJ
+
     @NotNull
     @Column(nullable = false, length = 18)
     private String cnpj;

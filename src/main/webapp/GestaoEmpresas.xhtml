@@ -14,8 +14,8 @@
         <f:viewAction action="#{gestaoEmpresasBean.todasEmpresas}" />
     </f:metadata>
 
-    <h:form>
-        <p:messages autoUpdate="true" />
+    <h:form id="frm">
+        <p:messages id="messages" />
 
         <p:toolbar>
             <f:facet name="left">
@@ -25,7 +25,7 @@
 
             <p:commandButton value="Pesquisar" icon="fa fa-search"
                              actionListener="#{gestaoEmpresasBean.pesquisar}"
-                             update="empresasDataTable @form" process="@this termoPesquisa"/>
+                             update="empresasDataTable messages" process="@this termoPesquisa"/>
 
             <span class="ui-separator">
                 <span class="ui-icon ui-icon-grip-dotted-vertical" />
@@ -91,7 +91,7 @@
                              value="#{gestaoEmpresasBean.empresa.razaoSocial}"/>
 
                 <p:outputLabel value="Nome Fantasia: " for="nomeFantasia"/>
-                <p:inputText id="nomeFantasia" size="80" maxlength="120"
+                <p:inputText id="nomeFantasia" size="80" maxlength="80"
                              value="#{gestaoEmpresasBean.empresa.nomeFantasia}"/>
 
                 <p:outputLabel value="Tipo Empresa: " for="tipo" />
@@ -122,8 +122,7 @@
                 <p:outputLabel />
                 <p:commandButton value="Salvar"
                                  actionListener="#{gestaoEmpresasBean.salvar}"
-                                 update="empresasDataTable empresaPanelGrid empresaMessages
-                                        @form empresaDialog"
+                                 update="empresaPanelGrid empresaMessages empresaDialog"
                                  oncomplete="if (!args.validationFailed)
                                                 PF('empresaDialogueWidgetVar').hide();
                                             else

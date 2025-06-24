@@ -7,13 +7,17 @@ import com.example.erp.repository.Empresas;
 import com.example.erp.repository.RamoAtividades;
 import com.example.erp.service.CadastroEmpresaService;
 import com.example.erp.util.FacesMessages;
+import org.jboss.weld.context.RequestContext;
+import org.primefaces.PrimeFaces;
 
 import javax.faces.convert.Converter;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
+
 
 
 @Named("gestaoEmpresasBean")
@@ -48,8 +52,11 @@ public class GestaoEmpresasBean implements Serializable {
 
         if(jaHouvePesquisa()){
             pesquisar();
+        } else{
+            todasEmpresas();
         }
-        messages.info("Empresa cadastrada com sucesso!");
+        messages.info("Empresa salva com sucesso!");
+        PrimeFaces.current().ajax().update(Arrays.asList("frm:empresasDataTable", "frm:messages"));
     }
 
     private boolean jaHouvePesquisa(){
