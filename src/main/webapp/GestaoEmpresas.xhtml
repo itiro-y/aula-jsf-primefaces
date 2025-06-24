@@ -82,6 +82,7 @@
 
         <p:dialog id="empresaDialog" header="Nova empresa" widgetVar="empresaDialogueWidgetVar"
                   modal="true" resizable="false" closeOnEscape="true">
+            <p:messages id="empresaMessages"/>
 
             <p:panelGrid id="empresaPanelGrid" columns="2"
                          rendered="#{gestaoEmpresasBean.empresa ne null}">
@@ -121,8 +122,13 @@
                 <p:outputLabel />
                 <p:commandButton value="Salvar"
                                  actionListener="#{gestaoEmpresasBean.salvar}"
-                                 update="empresasDataTable empresaPanelGrid @form"
-                                 oncomplete="PF('empresaDialogueWidgetVar').hide()"
+                                 update="empresasDataTable empresaPanelGrid empresaMessages
+                                        @form empresaDialog"
+                                 oncomplete="if (!args.validationFailed)
+                                                PF('empresaDialogueWidgetVar').hide();
+                                            else
+                                                PF('empresaDialogueWidgetVar').show();"
+
                                  process="empresaDialog"/>
 
             </p:panelGrid>

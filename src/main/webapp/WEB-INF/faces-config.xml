@@ -7,5 +7,7 @@
         <locale-config>
             <default-locale>pt-BR</default-locale>
         </locale-config>
+
+        <message-bundle>com.algaworks.erp.Messages</message-bundle>
     </application>
 </faces-config>
