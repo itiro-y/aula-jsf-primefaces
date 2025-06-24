@@ -34,9 +34,11 @@
             <p:commandButton value="Nova" icon="fa fa-plus"
                              actionListener="#{gestaoEmpresasBean.prepararNovaEmpresa}"
                              oncomplete="PF('empresaDialogueWidgetVar').show()"
-                             update="empresaDialog" process="@this"/>
+                             update="empresaDialog" process="@this">
+                <p:resetInput target="empresaDialog" />
+            </p:commandButton>
 
-                <span class="ui-separator">
+            <span class="ui-separator">
                 <span class="ui-icon ui-icon-grip-dotted-vertical" />
             </span>
 
