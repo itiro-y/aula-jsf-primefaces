@@ -1,41 +1,37 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
   <artifactId>aula-jsf-primefaces</artifactId>
-
+  <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <version>1.0-SNAPSHOT</version>
-  <name>aula-jsf-primeface Maven Webapp</name>
+  <name>aula-jsf-primefaces</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
-
-    <dependency>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-compiler-plugin</artifactId>
-      <version>4.0.0-beta-2</version>
-    </dependency>
-
+    <!-- JSF (Mojarra) -->
     <dependency>
       <groupId>org.glassfish</groupId>
       <artifactId>javax.faces</artifactId>
       <version>2.3.9</version>
-      <scope>compile</scope>
     </dependency>
 
+    <!-- PrimeFaces 8.x -->
     <dependency>
       <groupId>org.primefaces</groupId>
       <artifactId>primefaces</artifactId>
-      <version>15.0.5</version>
-      <scope>compile</scope>
+      <version>8.0</version>
     </dependency>
 
+    <!-- Servlet API -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
@@ -43,38 +39,44 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- Hibernate Validator (Java EE 8) -->
     <dependency>
       <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
-      <version>9.0.1.Final</version>
-      <scope>compile</scope>
+      <version>6.1.7.Final</version>
     </dependency>
 
+    <!-- Hibernate Core -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>5.3.37.Final</version>
-      <scope>compile</scope>
     </dependency>
 
+    <!-- MySQL Connector -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.33</version>
-      <scope>compile</scope>
+    </dependency>
+
+    <!-- Weld for CDI (compatível com Java EE 8) -->
+    <dependency>
+      <groupId>org.jboss.weld.servlet</groupId>
+      <artifactId>weld-servlet-core</artifactId>
+      <version>3.1.0.Final</version>
     </dependency>
 
     <dependency>
-      <groupId>org.jboss.weld.servlet</groupId>
-      <artifactId>weld-servlet</artifactId>
-      <version>2.4.8.Final</version>
+      <groupId>jakarta.inject</groupId>
+      <artifactId>jakarta.inject-api</artifactId>
+      <version>2.0.1</version>
+      <scope>provided</scope>
     </dependency>
 
   </dependencies>
 
   <build>
-    <plugins>
-    </plugins>
+    <finalName>aula-jsf-primefaces</finalName>
   </build>
-
 </project>
