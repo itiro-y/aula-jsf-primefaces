@@ -1,10 +1,13 @@
 package com.example.erp.controller;
 
 import com.example.erp.model.Empresa;
+import com.example.erp.model.RamoAtividade;
 import com.example.erp.model.TipoEmpresa;
 import com.example.erp.repository.Empresas;
+import com.example.erp.repository.RamoAtividades;
 import com.example.erp.util.FacesMessages;
 
+import javax.faces.convert.Converter;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,6 +22,10 @@ public class GestaoEmpresasBean implements Serializable {
 
     private List<Empresa> listaEmpresas;
     private String termoPesquisa;
+    private RamoAtividadeConverter ramoAtividadeConverter;
+
+    @Inject
+    private RamoAtividades ramoAtividade;
 
     @Inject
     private FacesMessages messages;
@@ -59,5 +66,20 @@ public class GestaoEmpresasBean implements Serializable {
         if(listaEmpresas.isEmpty()){
             messages.info("Sua consulta não retornou registros");
         }
+    }
+
+    public List<RamoAtividade> completarRamoAtividade(String termo){
+        List<RamoAtividade> listaRamoAtividades = ramoAtividade.pesquisar(termo);
+        ramoAtividadeConverter = new RamoAtividadeConverter(listaRamoAtividades);
+
+        return listaRamoAtividades;
+    }
+
+    public RamoAtividadeConverter getRamoAtividadeConverter() {
+        return ramoAtividadeConverter;
+    }
+
+    public void setRamoAtividadeConverter(RamoAtividadeConverter ramoAtividadeConverter) {
+        this.ramoAtividadeConverter = ramoAtividadeConverter;
     }
 }
