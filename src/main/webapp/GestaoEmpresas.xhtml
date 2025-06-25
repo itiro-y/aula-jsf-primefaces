@@ -15,6 +15,7 @@
     </f:metadata>
 
     <h:form id="frm">
+
         <!-- Mensagens Formulario -->
         <p:messages id="messages" />
 
@@ -59,7 +60,10 @@
             <p:commandButton title="Excluir" icon="fa fa-trash"
                              disabled="#{not gestaoEmpresasBean.empresaSelecionada}"
                              actionListener="#{gestaoEmpresasBean.excluir}"
-                             update="messages empresasDataTable toolbar" process="@this"/>
+                             update="frm:messages frm:empresasDataTable frm:toolbar" process="@this">
+                <p:confirm icon="ui-icon-alert" header="Confirmação de exclusão"
+                           message="Posso excluir a empresa?" />
+            </p:commandButton>
 
             <span class="ui-separator">
                 <span class="ui-icon ui-icon-grip-dotted-vertical" />
