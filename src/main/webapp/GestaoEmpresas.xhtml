@@ -70,7 +70,9 @@
             </span>
 
             <!-- Botao Exportar Excel -->
-            <p:commandButton title="Exportar para o Excel" icon="fa fa-file-excel-o" />
+            <p:commandButton title="Exportar para o Excel" icon="fa fa-file-excel-o" ajax="false">
+                <p:dataExporter target="empresasDataTable" type="xls" fileName="Empresas"/>
+            </p:commandButton>
 
             </f:facet>
         </p:toolbar>
