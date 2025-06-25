@@ -48,7 +48,12 @@
 
             <!-- Botao Editar -->
             <p:commandButton title="Editar" icon="fa fa-edit"
-                             disabled="#{not gestaoEmpresasBean.empresaSelecionada}"/>
+                             disabled="#{not gestaoEmpresasBean.empresaSelecionada}"
+                             actionListener="#{gestaoEmpresasBean.prepararEdicao}"
+                             oncomplete="PF('empresaDialogueWidgetVar').show()"
+                             update="empresaDialog" process="@this">
+                <p:resetInput target="empresaDialog" />
+            </p:commandButton>
 
             <!-- Botao Excluir -->
             <p:commandButton title="Excluir" icon="fa fa-trash"
@@ -110,7 +115,7 @@
             <p:defaultCommand target="salvarCommandBotao" scope="empresaDialog"/>
 
             <!-- Panel Grid principal -->
-            <p:panelGrid id="empresaPanelGrid" columns="2"
+            <p:panelGrid id="empresaPanelGrid" columns="3"
                          rendered="#{gestaoEmpresasBean.empresa ne null}">
 
                 <!-- Razao Social Input -->

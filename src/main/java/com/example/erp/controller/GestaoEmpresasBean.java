@@ -124,4 +124,8 @@ public class GestaoEmpresasBean implements Serializable {
     public boolean isEmpresaSelecionada(){
         return empresa != null && empresa.getId() != null;
     }
+
+    public void prepararEdicao(){
+        ramoAtividadeConverter = new RamoAtividadeConverter(Arrays.asList(empresa.getRamoAtividade()));
+    }
 }
